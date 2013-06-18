@@ -7,13 +7,13 @@ function Controller() {
     $.__views.index = Ti.UI.createTabGroup({
         id: "index"
     });
-    $.__views.__alloyId0 = Alloy.createController("tabOneView", {
+    $.__views.__alloyId0 = Alloy.createController("tabTwoView", {
         id: "__alloyId0"
     });
     $.__views.index.addTab($.__views.__alloyId0.getViewEx({
         recurse: true
     }));
-    $.__views.__alloyId1 = Alloy.createController("tabTwoView", {
+    $.__views.__alloyId1 = Alloy.createController("tabOneView", {
         id: "__alloyId1"
     });
     $.__views.index.addTab($.__views.__alloyId1.getViewEx({
