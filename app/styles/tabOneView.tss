@@ -1,0 +1,18 @@
+".container": {
+	backgroundColor: "white"
+},
+"#basicSwitch" : {
+	titleOn: 'Streaming Enabled',
+	titleOff: 'Streaming Disabled',
+	value: true,
+	width: 200,
+	height: 50,
+	color: "white",
+	backgroundColor: "black",
+	font: {
+		fontSize: 18
+	},
+	top: 25,
+	borderRadius: 16,
+	borderWidth: 1
+}

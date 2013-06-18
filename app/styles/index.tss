@@ -1,0 +1,27 @@
+".centerview": {
+	backgroundColor: "white",
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+},
+".container": {
+	backgroundColor: "white",
+	fullscreen: true
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+} ,
+"Button": {
+	width: 200,
+	height: 50,
+	color: "white",
+	backgroundColor: "black",
+	font: {
+		fontSize: 18
+	},
+	top: 25,
+	borderRadius: 16,
+	borderWidth: 1
+}

@@ -1,0 +1,8 @@
+<Alloy>
+	<TabGroup id="index">
+		<Require src="tabOneView">
+		</Require>
+		<Require src="tabTwoView">
+		</Require>
+	</TabGroup>
+</Alloy>

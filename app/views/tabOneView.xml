@@ -1,0 +1,12 @@
+<Alloy>
+	<Tab id="taboneview" title="Settings" class="tab">
+		<Window id="main" title="POD Catcher" class="container">
+			<View class="centerview">
+				<Button id="syncbutton">
+					Sync
+				</Button>
+				<Switch id="basicSwitch" value="true" onChange="outputState"/>
+			</View>
+		</Window>
+	</Tab>
+</Alloy>

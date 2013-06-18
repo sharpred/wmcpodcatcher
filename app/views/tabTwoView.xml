@@ -1,0 +1,6 @@
+<Alloy>
+	<Tab id="taboneview" title="Music" class="tab">
+		<Window id="current" title="Current Music" class="container">
+		</Window>
+	</Tab>
+</Alloy>
