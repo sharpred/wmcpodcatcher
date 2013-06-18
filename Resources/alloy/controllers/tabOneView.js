@@ -1,8 +1,11 @@
 function Controller() {
+    function getPodcast() {}
     function outputState() {
         var sync = $.basicSwitch.value;
+        Ti.App.Properties.setBool("sync", sync);
         Ti.API.info("Switch value: " + sync);
-        sync && alert("syncing will be slower if offline use is enabled");
+        sync && Alloy.Globals.showAlert("syncing will be slower if offline use is enabled");
+        getPodcast();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -25,7 +28,7 @@ function Controller() {
     $.__views.main.add($.__views.__alloyId2);
     $.__views.syncbutton = Ti.UI.createButton({
         width: 200,
-        height: 75,
+        height: 50,
         font: {
             fontSize: 18
         },
@@ -42,7 +45,7 @@ function Controller() {
         titleOff: "Offline: OFF",
         value: "true",
         width: 200,
-        height: 75,
+        height: 50,
         font: {
             fontSize: 18
         },
@@ -66,7 +69,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.syncbutton.addEventListener("click", function() {
-        alert("you clicked the sync button");
+        Alloy.Globals.showAlert("you clicked the sync button");
     });
     __defers["$.__views.basicSwitch!change!outputState"] && $.__views.basicSwitch.addEventListener("change", outputState);
     _.extend($, exports);

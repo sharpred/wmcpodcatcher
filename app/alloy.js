@@ -9,3 +9,15 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+
+//third party libs
+Alloy.Globals._ = require('alloy/underscore');
+
+//custom libs
+Alloy.Globals.showAlert = function(message) {
+    if (message && ( typeof message === 'string')) {
+        Ti.UI.createAlertDialog({
+            message : message
+        }).show();
+    }
+};
