@@ -20,7 +20,7 @@
 } ,
 "Button": {
 	width: 200,
-	height: 75,
+	height: 50,
 	font: {
 		fontSize: 18
 	},
