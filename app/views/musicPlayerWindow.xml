@@ -1,5 +1,15 @@
 <Alloy>
-	<Window id="musicwindow" title="Music Player">
-	
+	<Window id="musicwindow" title="Music Player" class="container">
+		<View class="centerview">
+			<Button id="startbutton" class="button">
+				Start
+			</Button>
+			<Button id="pausebutton" class="button">
+				Pause
+			</Button>
+			<Button id="stopbutton" class="button">
+				Stop
+			</Button>
+		</View>
 	</Window>
 </Alloy>

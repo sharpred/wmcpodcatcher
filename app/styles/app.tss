@@ -28,4 +28,15 @@
 	borderRadius: 16,
 	borderWidth: 1,
 	color: 'black'
+},
+".button": {
+	width: 200,
+	height: 50,
+	font: {
+		fontSize: 18
+	},
+	top: 25,
+	borderRadius: 16,
+	borderWidth: 1,
+	color: 'black'
 }
