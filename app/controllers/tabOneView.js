@@ -4,9 +4,9 @@ $.syncbutton.addEventListener('click', function() {
 function outputState(){
     var sync = $.basicSwitch.value;
     Ti.API.info('Switch value: ' + sync);
-    if (!sync) {
+    if (sync) {
     
-    alert('downloading will be slower if streaming is disabled');
+    alert('syncing will be slower if offline use is enabled');
     
     }
 }

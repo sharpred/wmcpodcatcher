@@ -2,17 +2,16 @@
 	backgroundColor: "white"
 },
 "#basicSwitch" : {
-	titleOn: 'Streaming Enabled',
-	titleOff: 'Streaming Disabled',
+	titleOn: 'Offline: ON',
+	titleOff: 'Offline: OFF',
 	value: true,
 	width: 200,
-	height: 50,
-	color: "white",
-	backgroundColor: "black",
+	height: 75,
 	font: {
 		fontSize: 18
 	},
 	top: 25,
 	borderRadius: 16,
-	borderWidth: 1
+	borderWidth: 1,
+	color: 'black'
 }

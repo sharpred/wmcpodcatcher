@@ -16,7 +16,7 @@ function Controller() {
         },
         window: $.__views.current,
         id: "taboneview",
-        title: "music"
+        title: "Music"
     });
     $.__views.taboneview && $.addTopLevelView($.__views.taboneview);
     exports.destroy = function() {};

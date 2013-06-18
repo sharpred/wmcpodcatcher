@@ -2,7 +2,7 @@ function Controller() {
     function outputState() {
         var sync = $.basicSwitch.value;
         Ti.API.info("Switch value: " + sync);
-        sync || alert("downloading will be slower if streaming is disabled");
+        sync && alert("syncing will be slower if offline use is enabled");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -25,33 +25,31 @@ function Controller() {
     $.__views.main.add($.__views.__alloyId2);
     $.__views.syncbutton = Ti.UI.createButton({
         width: 200,
-        height: 50,
-        color: "white",
-        backgroundColor: "black",
+        height: 75,
         font: {
             fontSize: 18
         },
         top: 25,
         borderRadius: 16,
         borderWidth: 1,
+        color: "black",
         title: "Sync",
         id: "syncbutton"
     });
     $.__views.__alloyId2.add($.__views.syncbutton);
     $.__views.basicSwitch = Ti.UI.createSwitch({
-        titleOn: "Streaming Enabled",
-        titleOff: "Streaming Disabled",
+        titleOn: "Offline: ON",
+        titleOff: "Offline: OFF",
         value: "true",
         width: 200,
-        height: 50,
-        color: "white",
-        backgroundColor: "black",
+        height: 75,
         font: {
             fontSize: 18
         },
         top: 25,
         borderRadius: 16,
         borderWidth: 1,
+        color: "black",
         id: "basicSwitch"
     });
     $.__views.__alloyId2.add($.__views.basicSwitch);
@@ -62,7 +60,7 @@ function Controller() {
         },
         window: $.__views.main,
         id: "taboneview",
-        title: "home"
+        title: "Settings"
     });
     $.__views.taboneview && $.addTopLevelView($.__views.taboneview);
     exports.destroy = function() {};
