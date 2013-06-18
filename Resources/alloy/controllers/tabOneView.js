@@ -103,8 +103,8 @@ function Controller() {
     };
     $.syncbutton.addEventListener("click", function() {
         Alloy.Globals.showAlert("you clicked the sync button");
-        music.destroy();
-        music.save();
+        Alloy.Collections.instance("music");
+        Alloy.Collections.music.deleteAll();
         getPodcast(sync);
     });
     __defers["$.__views.basicSwitch!change!outputState"] && $.__views.basicSwitch.addEventListener("change", outputState);

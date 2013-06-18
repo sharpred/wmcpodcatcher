@@ -14,15 +14,15 @@ function Controller() {
         id: "musictable"
     });
     $.__views.current.add($.__views.musictable);
-    $.__views.taboneview = Ti.UI.createTab({
+    $.__views.tabtwoview = Ti.UI.createTab({
         font: {
             fontSize: 18
         },
         window: $.__views.current,
-        id: "taboneview",
+        id: "tabtwoview",
         title: "Music"
     });
-    $.__views.taboneview && $.addTopLevelView($.__views.taboneview);
+    $.__views.tabtwoview && $.addTopLevelView($.__views.tabtwoview);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var music = Alloy.Models.instance("music");
@@ -31,7 +31,8 @@ function Controller() {
         _.each(data, function(item) {
             var row = Ti.UI.createTableViewRow({
                 title: item.title,
-                id: "musicrow"
+                id: "musicrow",
+                url: item.url
             });
             rows.push(row);
         });
@@ -50,6 +51,10 @@ function Controller() {
                 Ti.API.info(JSON.stringify("fetch error " + _response, null, 2));
             }
         });
+    });
+    $.musictable.addEventListener("click", function() {
+        var musicController = Alloy.createController("musicPlayerWindow");
+        musicController.openMainWindow($.tabtwoview);
     });
     _.extend($, exports);
 }

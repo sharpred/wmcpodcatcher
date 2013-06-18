@@ -7,7 +7,7 @@ var addRows = function(data) {
         var row = Ti.UI.createTableViewRow({
 
             title : item.title,
-            id : 'musicrow'
+            id : 'musicrow', url: item.url
 
         });
 
@@ -38,6 +38,14 @@ $.current.addEventListener('focus', function() {
             Ti.API.info(JSON.stringify('fetch error ' + _response, null, 2));
         }
     });
+
+});
+
+$.musictable.addEventListener('click', function() {
+
+    var musicController = Alloy.createController('musicPlayerWindow');
+    
+    musicController.openMainWindow($.tabtwoview);
 
 });
 

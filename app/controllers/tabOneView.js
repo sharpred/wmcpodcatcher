@@ -83,8 +83,9 @@ var outputState = function() {
 $.syncbutton.addEventListener('click', function() {
     Alloy.Globals.showAlert('you clicked the sync button');
     //nuke the current collection
-    music.destroy();
-    music.save();
+    //from https://gist.github.com/aaronksaunders/5066608
+    Alloy.Collections.instance("music");
+    Alloy.Collections.music.deleteAll();
     getPodcast(sync);
 });
 

@@ -17,7 +17,16 @@ exports.definition = {
         return Model;
     },
     extendCollection: function(Collection) {
-        _.extend(Collection.prototype, {});
+        _.extend(Collection.prototype, {
+            deleteAll: function() {
+                var collection = this;
+                var sql = "DELETE FROM " + collection.config.adapter.collection_name;
+                db = Ti.Database.open(collection.config.adapter.db_name);
+                db.execute(sql);
+                db.close();
+                collection.trigger("sync");
+            }
+        });
         return Collection;
     }
 };
