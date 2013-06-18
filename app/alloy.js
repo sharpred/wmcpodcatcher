@@ -21,3 +21,13 @@ Alloy.Globals.showAlert = function(message) {
         }).show();
     }
 };
+
+Alloy.Globals.stripSpecialChars = function(text) {
+
+    if (text && ( typeof text === 'string')) {
+        text = text.replace(/[^a-zA-Z0-9\:\-\.\/\_]/g, '');
+    }
+    //cautious approach - just return it as is
+    return text;
+
+};

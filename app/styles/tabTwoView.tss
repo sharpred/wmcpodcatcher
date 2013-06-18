@@ -1,3 +1,9 @@
 ".container": {
 	backgroundColor: "white"
 }
+
+"#musicrow" : {
+	height: 50,
+	color: 'black',
+	hasChild: true
+}

@@ -8,4 +8,9 @@ Alloy.Globals.showAlert = function(message) {
     }).show();
 };
 
+Alloy.Globals.stripSpecialChars = function(text) {
+    text && "string" == typeof text && (text = text.replace(/[^a-zA-Z0-9\:\-\.\/\_]/g, ""));
+    return text;
+};
+
 Alloy.createController("index");
