@@ -52,9 +52,11 @@ function Controller() {
             }
         });
     });
-    $.musictable.addEventListener("click", function() {
+    $.musictable.addEventListener("click", function(e) {
         var musicController = Alloy.createController("musicPlayerWindow");
-        musicController.openMainWindow($.tabtwoview);
+        var args = e.rowData;
+        args.tab = $.tabtwoview;
+        musicController.openMainWindow(args);
     });
     _.extend($, exports);
 }

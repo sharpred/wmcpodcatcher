@@ -7,6 +7,7 @@ function Controller() {
     $.__views.musicwindow = Ti.UI.createWindow({
         backgroundColor: "white",
         fullscreen: true,
+        color: "black",
         id: "musicwindow",
         title: "Music Player"
     });
@@ -18,6 +19,13 @@ function Controller() {
         id: "__alloyId2"
     });
     $.__views.musicwindow.add($.__views.__alloyId2);
+    $.__views.songtitle = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        id: "songtitle"
+    });
+    $.__views.__alloyId2.add($.__views.songtitle);
     $.__views.startbutton = Ti.UI.createButton({
         width: 200,
         height: 50,
@@ -62,9 +70,26 @@ function Controller() {
     $.__views.__alloyId2.add($.__views.stopbutton);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    exports.openMainWindow = function(_tab) {
-        _tab.open($.musicwindow);
+    var url;
+    exports.openMainWindow = function(args) {
+        var tab = args.tab;
+        $.musicwindow.title = args.title;
+        url = args.url;
+        tab.open($.musicwindow);
     };
+    $.musicwindow.addEventListener("focus", function() {
+        if (url) {
+            $.startbutton.enabled = true;
+            $.pausebutton.enabled = true;
+            $.stopbutton.enabled = true;
+            $.songtitle.text = url;
+        } else {
+            $.startbutton.enabled = false;
+            $.pausebutton.enabled = false;
+            $.stopbutton.enabled = false;
+            $.songtitle.text = "";
+        }
+    });
     _.extend($, exports);
 }
 
