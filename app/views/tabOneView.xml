@@ -5,7 +5,11 @@
 				<Button id="syncbutton">
 					Sync
 				</Button>
-				<Switch platform="android" id="basicSwitch" value="true" onChange="outputState"/>
+				<View class="iosswitch">
+				<!-- in android switch text is set from the tss style sheet in iOS we use a label-->
+				<Label id="switchlabel" platform="ios" text="offline cache:"></Label>
+				<Switch id="basicSwitch" value="false" onChange="outputState"/>
+				</View>
 			</View>
 		</Window>
 	</Tab>

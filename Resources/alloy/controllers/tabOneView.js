@@ -32,6 +32,37 @@ function Controller() {
         id: "syncbutton"
     });
     $.__views.__alloyId3.add($.__views.syncbutton);
+    $.__views.__alloyId4 = Ti.UI.createView({
+        layout: "horizontal",
+        width: "80%",
+        id: "__alloyId4"
+    });
+    $.__views.__alloyId3.add($.__views.__alloyId4);
+    $.__views.switchlabel = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "#000",
+        id: "switchlabel",
+        text: "offline cache:"
+    });
+    $.__views.__alloyId4.add($.__views.switchlabel);
+    $.__views.basicSwitch = Ti.UI.createSwitch({
+        titleOn: "Offline: ON",
+        titleOff: "Offline: OFF",
+        value: "false",
+        width: Ti.UI.SIZE,
+        height: 50,
+        font: {
+            fontSize: 18
+        },
+        top: 25,
+        borderRadius: 16,
+        borderWidth: 1,
+        color: "black",
+        id: "basicSwitch"
+    });
+    $.__views.__alloyId4.add($.__views.basicSwitch);
+    outputState ? $.__views.basicSwitch.addEventListener("change", outputState) : __defers["$.__views.basicSwitch!change!outputState"] = true;
     $.__views.taboneview = Ti.UI.createTab({
         font: {
             fontSize: 18

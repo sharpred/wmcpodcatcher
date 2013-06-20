@@ -1,11 +1,13 @@
+//style based on class
 ".container": {
 	backgroundColor: "white"
 },
+//style based on ID
 "#basicSwitch" : {
 	titleOn: 'Offline: ON',
 	titleOff: 'Offline: OFF',
 	value: true,
-	width: 200,
+	width: Ti.UI.SIZE,
 	height: 50,
 	font: {
 		fontSize: 18
@@ -14,4 +16,12 @@
 	borderRadius: 16,
 	borderWidth: 1,
 	color: 'black'
+},
+//style based on Titanium Object Type
+"Label" : {
+	width: Ti.UI.SIZE
+},
+//style based on class
+".iosswitch": {
+	layout: 'horizontal', width: '80%'
 }
