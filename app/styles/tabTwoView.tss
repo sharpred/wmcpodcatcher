@@ -1,9 +1,9 @@
 ".container": {
-	backgroundColor: "white"
+	backgroundColor: "white", color: 'black'
 }
 
-"#musicrow" : {
-	height: 50,
+"TableViewRow" : {
+	height: 75,
 	color: 'black',
 	hasChild: true
 }

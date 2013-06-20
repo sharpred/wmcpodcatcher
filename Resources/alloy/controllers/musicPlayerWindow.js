@@ -26,7 +26,7 @@ function Controller() {
         id: "songtitle"
     });
     $.__views.__alloyId2.add($.__views.songtitle);
-    $.__views.startbutton = Ti.UI.createButton({
+    $.__views.startstopbutton = Ti.UI.createButton({
         width: 200,
         height: 50,
         font: {
@@ -37,10 +37,10 @@ function Controller() {
         borderWidth: 1,
         color: "black",
         title: "Start",
-        id: "startbutton"
+        id: "startstopbutton"
     });
-    $.__views.__alloyId2.add($.__views.startbutton);
-    $.__views.pausebutton = Ti.UI.createButton({
+    $.__views.__alloyId2.add($.__views.startstopbutton);
+    $.__views.pauseresumebutton = Ti.UI.createButton({
         width: 200,
         height: 50,
         font: {
@@ -51,45 +51,57 @@ function Controller() {
         borderWidth: 1,
         color: "black",
         title: "Pause",
-        id: "pausebutton"
+        id: "pauseresumebutton"
     });
-    $.__views.__alloyId2.add($.__views.pausebutton);
-    $.__views.stopbutton = Ti.UI.createButton({
-        width: 200,
-        height: 50,
-        font: {
-            fontSize: 18
-        },
-        top: 25,
-        borderRadius: 16,
-        borderWidth: 1,
-        color: "black",
-        title: "Stop",
-        id: "stopbutton"
-    });
-    $.__views.__alloyId2.add($.__views.stopbutton);
+    $.__views.__alloyId2.add($.__views.pauseresumebutton);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var url;
+    var audioPlayer = Ti.Media.createAudioPlayer({
+        url: url,
+        allowBackground: true
+    });
+    $.musicwindow.addEventListener("focus", function() {
+        if (url) {
+            $.startstopbutton.enabled = true;
+            $.pauseresumebutton.enabled = true;
+            $.songtitle.text = url;
+        } else {
+            $.startstopbutton.enabled = false;
+            $.pauseresumebutton.enabled = false;
+        }
+    });
+    $.musicwindow.addEventListener("close", function() {
+        audioPlayer.stop();
+        "android" === Ti.Platform.osname && audioPlayer.release();
+    });
+    $.startstopbutton.addEventListener("click", function() {
+        audioPlayer.url = url;
+        if (audioPlayer.playing || audioPlayer.paused) {
+            $.startstopbutton.title = "start";
+            audioPlayer.stop();
+            $.pauseresumebutton.enabled = false;
+        } else {
+            $.startstopbutton.title = "stop";
+            audioPlayer.start();
+            $.pauseresumebutton.enabled = true;
+        }
+    });
+    $.pauseresumebutton.addEventListener("click", function() {
+        if (audioPlayer && audioPlayer.paused) {
+            $.pauseresumebutton.title = "pause";
+            audioPlayer.start();
+        } else {
+            $.pauseresumebutton.title = "resume";
+            audioPlayer.pause();
+        }
+    });
     exports.openMainWindow = function(args) {
         var tab = args.tab;
         $.musicwindow.title = args.title;
         url = args.url;
         tab.open($.musicwindow);
     };
-    $.musicwindow.addEventListener("focus", function() {
-        if (url) {
-            $.startbutton.enabled = true;
-            $.pausebutton.enabled = true;
-            $.stopbutton.enabled = true;
-            $.songtitle.text = url;
-        } else {
-            $.startbutton.enabled = false;
-            $.pausebutton.enabled = false;
-            $.stopbutton.enabled = false;
-            $.songtitle.text = "";
-        }
-    });
     _.extend($, exports);
 }
 

@@ -7,8 +7,8 @@ var addRows = function(data) {
         var row = Ti.UI.createTableViewRow({
 
             title : item.title,
-            id : 'musicrow',
-            url : item.url
+            url : item.url,
+            id : 'music'
 
         });
 
@@ -31,12 +31,11 @@ $.current.addEventListener('focus', function() {
     });
 
     music.fetch({
-        success : function(_model, _response) {
-            //Ti.API.info(JSON.stringify('fetch success ' + _response, null, 2));
-            $.musictable.setData(addRows(_response));
+        success : function(model, response) {
+            $.musictable.setData(addRows(response));
         },
-        error : function(_model, _response) {
-            Ti.API.info(JSON.stringify('fetch error ' + _response, null, 2));
+        error : function(model, response) {
+            Ti.API.info(JSON.stringify('fetch error ' + response, null, 2));
         }
     });
 

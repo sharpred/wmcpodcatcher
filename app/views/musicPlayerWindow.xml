@@ -2,14 +2,11 @@
 	<Window id="musicwindow" title="Music Player" class="container">
 		<View class="centerview">
 			<Label id="songtitle"></Label>
-			<Button id="startbutton" class="button">
+			<Button id="startstopbutton" class="button">
 				Start
 			</Button>
-			<Button id="pausebutton" class="button">
+			<Button id="pauseresumebutton" class="button">
 				Pause
-			</Button>
-			<Button id="stopbutton" class="button">
-				Stop
 			</Button>
 		</View>
 	</Window>

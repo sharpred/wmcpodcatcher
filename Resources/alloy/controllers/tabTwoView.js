@@ -7,8 +7,9 @@ function Controller() {
     $.__views.current = Ti.UI.createWindow({
         backgroundColor: "white",
         fullscreen: true,
+        color: "black",
         id: "current",
-        title: "Current Music"
+        title: "recordings"
     });
     $.__views.musictable = Ti.UI.createTableView({
         id: "musictable"
@@ -31,8 +32,8 @@ function Controller() {
         _.each(data, function(item) {
             var row = Ti.UI.createTableViewRow({
                 title: item.title,
-                id: "musicrow",
-                url: item.url
+                url: item.url,
+                id: "music"
             });
             rows.push(row);
         });
@@ -44,11 +45,11 @@ function Controller() {
             $.musictable.remove(kid);
         });
         music.fetch({
-            success: function(_model, _response) {
-                $.musictable.setData(addRows(_response));
+            success: function(model, response) {
+                $.musictable.setData(addRows(response));
             },
-            error: function(_model, _response) {
-                Ti.API.info(JSON.stringify("fetch error " + _response, null, 2));
+            error: function(model, response) {
+                Ti.API.info(JSON.stringify("fetch error " + response, null, 2));
             }
         });
     });

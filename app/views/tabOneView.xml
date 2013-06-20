@@ -5,7 +5,7 @@
 				<Button id="syncbutton">
 					Sync
 				</Button>
-				<Switch id="basicSwitch" value="true" onChange="outputState"/>
+				<Switch platform="android" id="basicSwitch" value="true" onChange="outputState"/>
 			</View>
 		</Window>
 	</Tab>

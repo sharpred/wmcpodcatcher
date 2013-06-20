@@ -1,6 +1,6 @@
 <Alloy>
 	<Tab id="tabtwoview" title="Music" class="tab">
-		<Window id="current" title="Current Music" class="container">
+		<Window id="current" title="recordings" class="container">
 			<TableView id="musictable">
 			</TableView>
 		</Window>

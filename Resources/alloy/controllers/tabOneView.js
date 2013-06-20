@@ -32,23 +32,6 @@ function Controller() {
         id: "syncbutton"
     });
     $.__views.__alloyId3.add($.__views.syncbutton);
-    $.__views.basicSwitch = Ti.UI.createSwitch({
-        titleOn: "Offline: ON",
-        titleOff: "Offline: OFF",
-        value: "true",
-        width: 200,
-        height: 50,
-        font: {
-            fontSize: 18
-        },
-        top: 25,
-        borderRadius: 16,
-        borderWidth: 1,
-        color: "black",
-        id: "basicSwitch"
-    });
-    $.__views.__alloyId3.add($.__views.basicSwitch);
-    outputState ? $.__views.basicSwitch.addEventListener("change", outputState) : __defers["$.__views.basicSwitch!change!outputState"] = true;
     $.__views.taboneview = Ti.UI.createTab({
         font: {
             fontSize: 18
